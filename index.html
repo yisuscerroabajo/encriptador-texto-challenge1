@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Encriptador Alura</title>
+  </head>
+  <body class="container__pagina">
+    <header>
+      <h1>
+        <img src="imagenes/Logo.png" alt="logo" class="imagen-logo" />
+      </h1>
+    </header>
+    <section class="container__texto">
+      <form>
+        <label for="mensaje"></label>
+        <textarea rows="1" id="mensaje" class="container__input" required="">
+        </textarea>
+      </form>
+
+      <div class="advertencia-minusculas">
+        <img
+          src="imagenes/bi_exclamation-circle-fill.png"
+          alt="imagen-exclamacion"
+          class="imagen-exclamacion"
+        />
+        <p>Solo letras minúsculas y sin acentos.</p>
+      </div>
+      <div class="container__botones">
+        <button id="boton-encriptar" class="boton-encriptar">
+          <span class="color-boton-encriptar">Encriptar </span>
+        </button>
+        <button class="boton-desencriptar" id="boton-desencriptar">
+          <span class="color-boton-desencriptar">Desencriptar</span>
+        </button>
+      </div>
+    </section>
+    <section class="rectangulo1">
+      <div
+        id="container__buscando"
+        class="container__buscando"
+        style="display: flex"
+        ;
+      >
+        <img
+          src="imagenes/Muñeco.png"
+          alt="imagen-muñeco"
+          class="imagen-muñeco"
+        />
+        <p class="caja1">Ningún mensaje fue encontrado.</p>
+        <p class="caja2">
+          Ingresa el texto que deseas encriptar o desencriptar.
+        </p>
+      </div>
+
+      <div
+        id="container__cargando"
+        class="container__cargando"
+        style="display: none"
+      >
+        <img
+          src="imagenes/loading.png"
+          alt="imagen-cargando"
+          class="imagen-cargando"
+        />
+        <p class="caja3">El texto se está convirtiendo...</p>
+        <p class="caja4">
+          Recuerda que no debe llevar comas, puntos ni tildes.
+        </p>
+      </div>
+
+      <div id="container__error" class="container__error" style="display: none">
+        <img
+          src="imagenes/imagenerror.png"
+          alt="imagen-error"
+          class="imagen-error"
+        />
+        <p class="caja5">Alerta Texto Invalido</p>
+        <p class="caja6">
+          Recuerda que no debe llevar comas, puntos ni tildes.
+        </p>
+      </div>
+
+      <div
+        id="container__resultados"
+        class="container__resultados"
+        style="display: none"
+      >
+        <div class="caja-texto">
+          <p class="estilo-textodesencriptado">
+            Aquí va a ir el texto que queremos desencriptar en javascript
+          </p>
+        </div>
+        <div>
+          <button id="boton-copiar" class="boton-copiar">
+            <span class="color-boton-copiar">Copiar </span>
+          </button>
+        </div>
+      </div>
+
+      <!--
+
+<p block class="container__textoencriptado">Contenido del texto encriptado</p>
+
+
+     -->
+    </section>
+    <footer>
+      <img src="" alt="" />
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
