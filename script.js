@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   let textarea = document.getElementById("mensaje");
-
   let primeraCaja = document.getElementById("container__buscando");
   let segundaCaja = document.getElementById("container__cargando");
   let terceraCaja = document.getElementById("container__error");
@@ -14,14 +13,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Elimina el texto predeterminado cuando el textarea obtiene foco
   textarea.addEventListener("focus", function () {
-    // Verifica si el valor del textarea es el texto predeterminado
+    // Verifica si el valor y tipo del textarea es el texto predeterminado
     if (textarea.value === "Ingrese el texto, click aquí por favor") {
       // Si es así, borra el texto predeterminado
       textarea.value = "";
 
       // Muestra el contenedor de carga y oculta los otros contenedores
       primeraCaja.style.display = "none"; // Oculta container__respuestas
-      terceraCaja.style.display = "none"; // Oculta container__respuestas
+      terceraCaja.style.display = "none"; // Oculta container__error
       cuartaCaja.style.display = "none"; // Oculta container__respuestas
       segundaCaja.style.display = "flex"; // Muestra container__cargando
     }
@@ -119,23 +118,33 @@ document.addEventListener("DOMContentLoaded", function () {
     //verifica botón
     console.log("es un click en Desencriptar");
 
-    //Muestra el texto desencriptado en la consola.
-    console.log(desencriptarTexto(textarea.value));
+    //convierte el valor a string
+    textarea.value.toString();
+
     segundaCaja.style.display = "none";
     primeraCaja.style.display = "none";
     terceraCaja.style.display = "none";
     cuartaCaja.style.display = "flex";
 
-    function desencriptarTexto(texto) {
-      const textarea = texto
-        .replaceAll("enter", "e")
-        .replaceAll("imes", "i")
-        .replaceAll("ai", "a")
-        .replaceAll("ober", "o")
-        .replaceAll("ufat", "u");
-      return textarea;
+    function desencriptarTexto(textoAEncriptar) {
+      //dividimos el texto en palabras utilizando un split (" ")
+      const palabras = textoAEncriptar.split(" ");
+      //se aplica el reemplazo de cada palabra
+      const textoDesencriptado = palabras.map((palabras) => {
+        return palabras
+          .replaceAll(/enter/g, "e")
+          .replaceAll(/gimes/g, "i")
+          .replaceAll(/ai/g, "a")
+          .replaceAll(/ober/g, "o")
+          .replaceAll(/ufat/g, "u");
+      });
+      //unimos todo el array en un solo texto conjunto
+      return textoDesencriptado.join(" ");
     }
-    console.log(desencriptarTexto(textarea.value));
+    //define variable global textoJoin ya es el texto desencriptado y convertido
+    let textoJoin = desencriptarTexto(textarea.value);
+    //Muestra el texto a desencriptar en la consola
+    console.log(textoJoin);
 
     //Mostrar el texto desencriptado en la caja de resulado
     //Definir en donde se muestra el texto en js

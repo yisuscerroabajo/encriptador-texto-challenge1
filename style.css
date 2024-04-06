@@ -1,41 +1,68 @@
-.container__pagina {
-  width: 100%;
+* {
+  margin: 0 auto;
+  box-sizing: border-box;
+  scrollbar-color: var(--dark-blue) #f3f5fc;
 }
-header {
-  display: block;
+
+:root {
+  --padding-container: 24px 0;
+  --margin-centrar: 0 auto;
+}
+
+.container__pagina {
+  width: 95%;
+  max-width: 100%;
+  top: 622px;
+  left: -2277px;
+  margin: 20px 5% 0 0;
+}
+
+.caja-header {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: var(--padding-container);
 }
 
 body {
   font-family: "Inter", sans-serif;
-  display: flexbox;
-
-  width: 1440px;
-  height: 1024px;
-  top: 622px;
-  left: -2277px;
   background: #f3f5fc;
+  box-sizing: border-box;
+  max-width: 1450px;
+  max-height: 1180px;
 }
 
 h1 {
+  display: flex;
   position: absolute;
+  margin: 0;
   width: 120px;
   height: 48px;
   top: 40px;
   left: 40px;
   gap: 40px;
 }
+
 /*
 .imagen-logo {
 
 }
 */
 
+.caja-flex {
+  display: flex;
+  width: auto;
+}
+
+.caja-textoBotones {
+  margin: 50px 55px 0 140px;
+  width: 50%;
+  height: auto;
+}
 .container__texto {
-  position: absolute;
-  width: 577px;
-  height: 48px;
-  top: 168px;
-  left: 240px;
+  width: 100%;
+  /*height: 48px;*/
+  margin-top: 0px;
 }
 
 textarea {
@@ -67,19 +94,18 @@ div p {
 }
 .advertencia-minusculas {
   display: flex;
-  width: 229px;
+  width: auto;
   height: 18px;
-  margin-top: 80%;
+  margin-top: 75%;
   margin-bottom: 1em;
   left: 240px;
   gap: 8px;
-  white-space: nowrap;
 }
 
 .container__botones {
   display: flex;
 
-  width: 680px;
+  width: auto;
   height: 67px;
   top: 885px;
   left: 240px;
@@ -135,15 +161,13 @@ div p {
 }
 
 .rectangulo1 {
-  position: absolute;
   display: flex;
-  flex-direction: column;
+
   justify-content: center;
   align-items: center; /**/
+  margin: 0 auto;
+  width: 45%;
 
-  width: 400px;
-  height: 825px;
-  top: 40px;
   left: 1000px;
   border-radius: 32px;
 
@@ -207,19 +231,23 @@ div p {
   text-align: center;
 }
 
-.container__resultados {
-  flex-direction: column;
+.caja-texto {
+  top: 72px;
+  left: 70%;
+
+  overflow: hidden;
+  word-wrap: break-word;
 }
 
-.caja-texto {
-  width: 336px;
-  height: 600px;
-  top: 72px;
-  left: 1032px;
-  gap: 0px;
-  opacity: 0px;
-
+.container__resultados {
+  width: 95%;
+  height: 90%;
+  overflow: hidden;
+  word-wrap: break-word;
+  text-align: center;
+  justify-content: space-between;
   flex-direction: column;
+  margin: 0 auto;
 }
 
 .estilo-textodesencriptado {
@@ -231,11 +259,11 @@ div p {
 }
 
 .boton-copiar {
-  width: 336px;
+  width: 80%;
   height: 67px;
   top: 885px;
   left: 1032px;
-  padding: 24px;
+
   gap: 8px;
   border-radius: 24px;
   border: 1px solid rgba(10, 56, 113, 1);
@@ -254,4 +282,170 @@ div p {
   font-weight: 400;
   line-height: 19.36px;
   text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  /* o 'absolute' si prefieres */
+  bottom: 0;
+  /* Opcional: Haz que el pie de página ocupe todo el ancho de la ventana */
+  height: 150px;
+  width: 100%;
+  background-color: #ccc; /* Color de fondo del pie de página */
+  padding: 0px; /* Añade algo de espacio alrededor del contenido del pie de página */
+  background: url(imagenes/footer.pgn.PNG);
+}
+
+.container-gato {
+  margin: 0 auto;
+  align-items: center;
+}
+
+.imagen-gato {
+  margin: 0 auto;
+  width: auto;
+  height: 100%;
+}
+
+@media screen and (max-width: 1065px) {
+  body {
+    zoom: 1;
+    max-height: auto;
+  }
+  .caja-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    margin: 0 0 0 5px;
+    height: 1350px;
+  }
+
+  .advertencia-minusculas {
+    width: 95%;
+    justify-content: space-between;
+    overflow: hidden;
+    display: flex;
+    height: auto;
+  }
+
+  .caja-textoBotones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 50px 50px 0 80px;
+    height: 50%;
+    width: 85%;
+  }
+
+  .container__botones {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .rectangulo1 {
+    margin-top: 10%;
+    width: 85%;
+    height: 50%;
+  }
+
+  .boton-encriptar,
+  .boton-desencriptar,
+  .advertencia-minusculas {
+    width: 95%;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .advertencia-minusculas {
+    margin-top: auto;
+  }
+
+  /* Ajusta el contenerdo buscando al centro para que las imagenes no se salgan
+   .container__buscando {
+    width: 100%;
+  }
+
+
+  .imagen-muñeco,
+  p.caja1,
+  p.caja2 {
+    width: 95%;
+    margin-top: 15px;
+  }*/
+}
+
+@media screen and (max-width: 522px) {
+  body {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .caja-flex {
+    height: auto;
+  }
+
+  .caja-textoBotones {
+    justify-content: flex-end;
+    height: auto;
+  }
+
+  .container__texto {
+    margin-bottom: 25%;
+    height: auto;
+  }
+  .advertencia-minusculas {
+    margin-top: 5px;
+  }
+
+  .container__buscando,
+  .container__cargando,
+  .container__error {
+    width: 100%;
+    width: 90%;
+    height: max-content;
+    overflow-wrap: break-word;
+  }
+
+  .container__resultados {
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    height: 100%;
+    padding: 15px;
+  }
+
+  .caja1 {
+    height: auto;
+  }
+
+  .caja2 {
+    margin: auto;
+  }
+
+  .cajacentradora522px {
+    height: 90%;
+    width: 90%;
+    margin-bottom: 10%;
+  }
+
+  .imagen-muñeco,
+  .imagen-cargando,
+  .imagen-error,
+  p.caja1,
+  p.caja2,
+  p.caja3,
+  p.caja4,
+  p.caja5,
+  p.caja6 {
+    width: 95%;
+    margin-top: 15px;
+  }
+
+  .footer {
+    margin-top: 0px;
+  }
 }
