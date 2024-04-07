@@ -293,7 +293,7 @@ footer {
   bottom: 0;
   /* Opcional: Haz que el pie de página ocupe todo el ancho de la ventana */
   height: 150px;
-  width: 100%;
+  width: 110%;
   background-color: #ccc; /* Color de fondo del pie de página */
   padding: 0px; /* Añade algo de espacio alrededor del contenido del pie de página */
   background: url(imagenes/footer.pgn.PNG);
