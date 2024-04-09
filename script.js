@@ -10,6 +10,7 @@ let botonCopiar = document.getElementById("boton-copiar");
 // Texto predeterminado
 textarea.value = "Ingrese el texto, click aquí por favor";
 
+//Selecciona todo el texto
 // Elimina el texto predeterminado cuando el textarea obtiene foco
 textarea.addEventListener("focus", function () {
   // Verifica si el valor y tipo del textarea es el texto predeterminado
@@ -22,7 +23,10 @@ textarea.addEventListener("focus", function () {
     terceraCaja.style.display = "none"; // Oculta container__error
     cuartaCaja.style.display = "none"; // Oculta container__respuestas
     segundaCaja.style.display = "flex"; // Muestra container__cargando
-  }
+  } else
+    document.getElementById("mensaje").onclick = function () {
+      this.select();
+    };
 });
 // Restaura el texto predeterminado si el textarea está vacío cuando pierde foco
 textarea.addEventListener("blur", function () {
