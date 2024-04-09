@@ -12,12 +12,12 @@
     />
   </head>
   <body>
-    <main class="container__pagina">
-      <nav class="caja-header">
+    <div class="container__pagina">
+      <header class="caja-header">
         <h1>
           <img src="imagenes/Logo.png" alt="logo" class="imagen-logo" />
         </h1>
-      </nav>
+      </header>
       <main class="caja-flex">
         <section class="caja-textoBotones">
           <form class="container__texto">
@@ -37,7 +37,7 @@
               alt="imagen-exclamacion"
               class="imagen-exclamacion"
             />
-            <p>Solo letras minúsculas y sin acentos.</p>
+            <p>Solo letras minúsculas, sin puntos y sin acentos.</p>
           </div>
           <div class="container__botones">
             <button id="boton-encriptar" class="boton-encriptar">
@@ -82,7 +82,7 @@
               El texto se está convirtiendo...
             </p>
             <p class="caja4 cajacentradora522px">
-              Recuerda que no debe llevar comas, puntos ni tildes.
+              Recuerda que no debe llevar mayúsculas, comas, puntos ni tildes.
             </p>
           </div>
 
@@ -98,7 +98,7 @@
             />
             <p class="caja5 cajacentradora522px">Alerta Texto Invalido</p>
             <p class="caja6 cajacentradora522px">
-              Recuerda que no debe llevar comas, puntos ni tildes.
+              Recuerda que no debe llevar mayúsculas, comas, puntos ni tildes.
             </p>
           </div>
 
@@ -126,8 +126,9 @@
           alt="imagendelgato"
           class="imagen-gato caja-gato"
         />
+        <img src="imagenes/gato2.png" alt="imagengato2" class="caja-gato" />
       </footer>
-    </main>
-    <script src="script.js"></script>
+    </div>
+    <script defer src="script.js"></script>
   </body>
 </html>
