@@ -12,7 +12,7 @@
 .container__pagina {
   width: 100%;
   max-width: 100%;
-  max-width: 1450px;
+  max-width: 1150px;
 }
 
 .caja-header {
@@ -26,7 +26,7 @@ body {
   font-family: "Inter", sans-serif;
   background: #f3f5fc;
   box-sizing: border-box;
-  max-width: 1450px;
+  max-width: 1150px;
   max-height: 1180px;
 }
 
@@ -66,7 +66,7 @@ h1 {
 
 textarea {
   border: none;
-  padding: 2%;
+  padding: 3% 2.5%;
 }
 
 textarea#mensaje {
@@ -114,7 +114,6 @@ div p {
 
 .boton-encriptar {
   color: "Dark blue";
-
   width: 328px;
   height: 67px;
   padding: 24px;
@@ -247,7 +246,7 @@ div p {
   text-align: center;
   justify-content: space-between;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 0 5%;
 }
 
 .estilo-textodesencriptado {

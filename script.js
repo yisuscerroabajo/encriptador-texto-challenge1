@@ -23,10 +23,7 @@ textarea.addEventListener("focus", function () {
     terceraCaja.style.display = "none"; // Oculta container__error
     cuartaCaja.style.display = "none"; // Oculta container__respuestas
     segundaCaja.style.display = "flex"; // Muestra container__cargando
-  } else
-    document.getElementById("mensaje").onclick = function () {
-      this.select();
-    };
+  }
 });
 // Restaura el texto predeterminado si el textarea está vacío cuando pierde foco
 textarea.addEventListener("blur", function () {
@@ -50,10 +47,10 @@ function esMinusculas(texto) {
 
 botonEncriptar.addEventListener("click", function () {
   //verifica botón
-  console.log("es un click");
+  console.log("es un click en encriptar");
   //aplila la función "esMinusculas" para saber si los caracteres son correctos
   if (esMinusculas(textarea.value)) {
-    console.log("Los caracteres son validos");
+    console.log(textarea.value);
     segundaCaja.style.display = "none";
     primeraCaja.style.display = "none";
     terceraCaja.style.display = "none";
@@ -78,11 +75,11 @@ botonEncriptar.addEventListener("click", function () {
       //incovamos textarea porque es el texto valido ingresado por el usuario
       const textarea = texto
 
-        .replaceAll("e", "enter")
-        .replaceAll("i", "imes")
-        .replaceAll("a", "ai")
-        .replaceAll("o", "ober")
-        .replaceAll("u", "ufat");
+        .replaceAll(/e/g, "enter")
+        .replaceAll(/i/g, "imes")
+        .replaceAll(/a/g, "ai")
+        .replaceAll(/o/g, "ober")
+        .replaceAll(/u/g, "ufat");
       return textarea;
     }
     console.log(encriptarTexto(textarea.value));
@@ -109,52 +106,89 @@ botonEncriptar.addEventListener("click", function () {
 textarea.addEventListener("input", function () {
   autoExpandTextArea(this);
 });
+
 // Función para expandir automáticamente el área de texto
 function autoExpandTextArea(textArea) {
   textArea.style.height = "auto"; // Restablece la altura a 'auto' para obtener la altura de contenido real
   textArea.style.height = textArea.scrollHeight + "px"; // Establece la altura según el contenido
 }
 
-//Boton Desencriptar
-
 botonDesencriptar.addEventListener("click", function () {
   //verifica botón
   console.log("es un click en Desencriptar");
 
-  //convierte el valor a string
-  textarea.value.toString();
+  if (esMinusculas(textarea.value)) {
+    console.log("Los caracteres son validos");
+    console.log(
+      `Este es el textarea value a desencriptar "${textarea.value}"  `
+    );
+    segundaCaja.style.display = "none";
+    primeraCaja.style.display = "none";
+    terceraCaja.style.display = "none";
+    cuartaCaja.style.display = "flex";
+    textarea.value.toString();
 
-  segundaCaja.style.display = "none";
-  primeraCaja.style.display = "none";
-  terceraCaja.style.display = "none";
-  cuartaCaja.style.display = "flex";
+    const textareaAencriptar = textarea.value;
+    console.log(textarea.value.type);
+    console.log(
+      `Este es el tipo desencriptado= "${typeof textareaAencriptar}"`
+    );
 
-  function desencriptarTexto(textoAEncriptar) {
-    //dividimos el texto en palabras utilizando un split (" ")
-    const palabras = textoAEncriptar.split(" ");
-    //se aplica el reemplazo de cada palabra
-    const textoDesencriptado = palabras.map((palabras) => {
-      return palabras
-        .replaceAll(/enter/gi, "e")
-        .replaceAll(/imes/gi, "i")
-        .replaceAll(/ai/gi, "a")
-        .replaceAll(/ober/gi, "o")
-        .replaceAll(/ufat/gi, "u");
-    });
-    //unimos todo el array en un solo texto conjunto
-    return textoDesencriptado.join(" ");
+    const textoDesencriptado = textareaAencriptar
+      .replaceAll(/ai/gi, "a")
+      .replaceAll(/enter/gi, "e")
+      .replaceAll(/imes/gi, "i")
+      .replaceAll(/ober/gi, "o")
+      .replaceAll(/ufat/gi, "u");
+
+    console.log(textoDesencriptado);
+    //Mostrar el texto desencriptado en la caja de resulado
+    //Definir en donde se muestra el texto en js
+    let cajaTextoResultado = document.querySelector(
+      ".estilo-textodesencriptado"
+    );
+    //cambiar el contenido del elemento en css por el textoEncriptado
+    cajaTextoResultado.textContent = `${textoDesencriptado}`;
+  } else {
+    //Aparece mensaje de error cuando el usuario ingresa mal el texto
+    console.log("Mensaje de error");
+    segundaCaja.style.display = "none";
+    primeraCaja.style.display = "none";
+    cuartaCaja.style.display = "none";
+    terceraCaja.style.display = "flex";
   }
-  //define variable global textoJoin ya es el texto desencriptado y convertido
-  let textoJoin = desencriptarTexto(textarea.value);
-  //Muestra el texto a desencriptar en la consola
-  console.log(textoJoin);
-
-  //Mostrar el texto desencriptado en la caja de resulado
-  //Definir en donde se muestra el texto en js
-  let cajaTextoResultado = document.querySelector(".estilo-textodesencriptado");
-  //cambiar el contenido del elemento en css por el textoEncriptado
-  cajaTextoResultado.textContent = `${desencriptarTexto(textarea.value)}`;
 });
+
+/*
+    //convierte el valor a string
+    textarea.value.toString();
+  
+    function desencriptarTexto(textoAEncriptar) {
+      //dividimos el texto en palabras utilizando un split (" ")
+      const palabras = textoAEncriptar.split(" ");
+      //se aplica el reemplazo de cada palabra
+      const textoDesencriptado = palabras.map((palabras) => {
+        return palabras
+          .replaceAll(/enter/gi, "e") //la i idica caracter identico no mayus ni minus
+          .replaceAll(/imes/gi, "i")
+          .replaceAll(/ai/gi, "a")
+          .replaceAll(/ober/gi, "o")
+          .replaceAll(/ufat/gi, "u");
+      });
+      //unimos todo el array en un solo texto conjunto
+      return textoDesencriptado.join(" ");
+    }
+    //define variable global textoJoin ya es el texto desencriptado y convertido
+    let textoJoin = desencriptarTexto(textarea.value);
+    //Muestra el texto a desencriptar en la consola
+    console.log(textoJoin);
+  
+    //Mostrar el texto desencriptado en la caja de resulado
+    //Definir en donde se muestra el texto en js
+    let cajaTextoResultado = document.querySelector(".estilo-textodesencriptado");
+    //cambiar el contenido del elemento en css por el textoEncriptado
+    cajaTextoResultado.textContent = `${desencriptarTexto(textarea.value)}`;
+  */
 
 //botonCopiar de click
 botonCopiar.addEventListener("click", function () {
@@ -164,11 +198,10 @@ botonCopiar.addEventListener("click", function () {
 });
 
 //Definimos función copiar
-
 function copiar() {
   // Obtener el elemento del DOM por su clase ".estilo-textodesencriptado"
   //llamamos a p de la caja 4
-  textoAEscribir = document.querySelector(".estilo-textodesencriptado");
+  let textoAEscribir = document.querySelector(".estilo-textodesencriptado");
 
   //Lo definimos como una nueva variable dentro de la funcion
   let textoACopiar = textoAEscribir.textContent;
